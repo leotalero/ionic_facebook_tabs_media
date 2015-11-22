@@ -1,0 +1,68 @@
+<ion-view view-title="Comentarios">
+  <ion-footer-bar align-title="left" class="bar-positive">
+        <h1 class="title">Agregar comentario</h1>
+            <button class="button button-icon" ng-click="newComentario()">
+                  <i class="icon ion-compose"></i>
+              </button>
+
+
+  </ion-footer-bar >
+
+    <ion-content scroll-watch>
+
+
+
+    <ion-list id="todolist">
+
+
+      <ion-item  ng-repeat="comentario in comentarios" class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" >
+       <img ng-src="{{comentario.face}}">
+        <h2>{{comentario.title}}</h2><p>{{comentario.fecha}}</p>
+        <p>{{comentario.descripcion}}</p>
+
+        <ion-option-button class="button-assertive" ng-click="remove(comentario)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+
+    </ion-list>
+
+
+  </ion-content>
+  <script id="new-comentario.html" type="text/ng-template">
+
+  <div class="modal">
+
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+      <h1 class="title">Nuevo comentario</h1>
+      <button class="button button-clear button-positive" ng-click="closeNewComentario()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+
+      <form ng-submit="createComentario(comentario)">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="Comentario titulo" ng-model="comentario.title">
+
+          </label>
+          <label class="item item-input">
+              <input type="text" placeholder="descripcion" ng-model="comentario.descripcion">
+
+          </label>
+
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive">Crear Comentario</button>
+        </div>
+      </form>
+
+    </ion-content>
+
+  </div>
+
+      </script>
+
+</ion-view>

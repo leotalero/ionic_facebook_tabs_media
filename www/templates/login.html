@@ -1,0 +1,34 @@
+<ion-view  title="Login">
+
+<ion-content>
+
+<div class="content content-padded" ng-controller="LoginController" >
+
+<div class="fondo" ng-init="getInfo()">
+
+
+<div class="row responsive-sm">
+  <div class="col"><h2 align="center">Login</h2></div>
+
+</div>
+
+<div class="row responsive-sm">
+
+  <p align="center" >Name: {{user.name}}</p>
+  </div>
+          <p align="center">
+
+          <img ng-src="{{'http://graph.facebook.com/' + user.id + '/picture?type=large'}}"/>
+          </p>
+
+
+
+          <button ng-click="login()" class="button icon-left ion-social-facebook button-full button-positive">FaceBook Login</button>
+        
+          <button class="button icon-left ion-social-facebook button-full button-positive" ng-click="logout()">Logout</button>
+
+
+</div>
+</div>
+    </ion-content>
+</ion-view>

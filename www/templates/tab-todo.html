@@ -1,0 +1,72 @@
+<ion-view view-title="To-do">
+  <ion-footer-bar align-title="left" class="bar-balanced">
+
+
+    <h1 class="title">Nueva tarea</h1>
+    <button class="button button-icon" ng-click="newTask()">
+          <i class="icon ion-compose"></i>
+      </button>
+
+  </ion-footer-bar >
+  <ion-content>
+
+
+
+
+  <div  class="list card">
+
+    <ion-list id="todolist">
+      <ion-item  ng-repeat="task in tasks" class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" >
+       <img ng-src="{{task.face}}">
+        <h2>{{task.title}}</h2>
+        <p>{{task.descripcion}}</p>
+        <p>{{task.fecha}}</p>
+    <label class="checkbox">
+      <input type="checkbox" ng-model="task.checked" ng-change="pushNotificationChange(task)">
+    </label>
+        <ion-option-button class="button-assertive" ng-click="remove(task)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+  </ion-content>
+  <script id="new-task.html" type="text/ng-template">
+
+  <div class="modal">
+
+
+    <ion-header-bar class="bar-secondary">
+      <h1 class="title">Nueva Tarea</h1>
+      <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancelar</button>
+    </ion-header-bar>
+
+
+    <ion-content>
+
+      <form ng-submit="createTask(task)">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="titulo tarea" ng-model="task.title">
+
+          </label>
+          <label class="item item-input">
+              <input type="text" placeholder="descripcion" ng-model="task.descripcion">
+
+          </label>
+
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-balanced">Create Tarea</button>
+        </div>
+      </form>
+
+    </ion-content>
+
+  </div>
+
+</script>
+
+</ion-view>
